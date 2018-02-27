@@ -24,7 +24,7 @@ void KsiazkaAdresatow::zapiszDoPliku(Plik& plik, int idZalogowanegoUzytkownika)
 
 std::string KsiazkaAdresatow::serializacjaAdresata(int pozycja, int idZalogowanegoUzytkownika)
 {
-	std::string linijkaAdresata = std::to_string(adresaci[pozycja].getID()) + "|" + std::to_string(idZalogowanegoUzytkownika) + "|" + adresaci[pozycja].getImie() + "|" + adresaci[pozycja].getNazwisko() + "|" + adresaci[pozycja].getTelefon() + "|" + adresaci[pozycja].getEmail() + "|" + adresaci[pozycja].getAdres();
+	std::string linijkaAdresata = std::to_string(adresaci[pozycja].pobierzID()) + "|" + std::to_string(idZalogowanegoUzytkownika) + "|" + adresaci[pozycja].pobierzImie() + "|" + adresaci[pozycja].pobierzNazwisko() + "|" + adresaci[pozycja].pobierzTelefon() + "|" + adresaci[pozycja].pobierzEmail() + "|" + adresaci[pozycja].pobierzAdres();
 
 	return linijkaAdresata;
 }
@@ -46,7 +46,11 @@ int KsiazkaAdresatow::wczytajZPliku(Plik& plik, int idZalogowanegoUzytkownika)
 	while (plik.czyKoniecPliku() == false)
 	{
 		plik.wczytajLinijkeZPliku(linijkaAdresata);
-		idOstatniegoAdresata = znajdzIdAdresata(linijkaAdresata);
+		int idObecnegoAdresata = znajdzIdAdresata(linijkaAdresata);
+
+		if (idObecnegoAdresata >= idOstatniegoAdresata)
+			idOstatniegoAdresata = idObecnegoAdresata;
+
 		bool adresatZalogowanegoUzytkownika = deserializacjaAdresata(linijkaAdresata, idZalogowanegoUzytkownika);
 
 		if (adresatZalogowanegoUzytkownika == false)
@@ -199,19 +203,19 @@ void KsiazkaAdresatow::edytujAdresata()
 		switch (wybor)
 		{
 			case '1':
-				adresaci[pozycja].setImie(dane);
+				adresaci[pozycja].ustawImie(dane);
 				return;
 			case '2':
-				adresaci[pozycja].setNazwisko(dane);
+				adresaci[pozycja].ustawNazwisko(dane);
 				return;
 			case '3':
-				adresaci[pozycja].setTelefon(dane);
+				adresaci[pozycja].ustawTelefon(dane);
 				return;
 			case '4':
-				adresaci[pozycja].setEmail(dane);
+				adresaci[pozycja].ustawEmail(dane);
 				return;
 			case '5':
-				adresaci[pozycja].setAdres(dane);
+				adresaci[pozycja].ustawAdres(dane);
 				return;
 			default:
 				system("cls");
@@ -235,7 +239,7 @@ int KsiazkaAdresatow::znajdzAdresata()
 
 	for (size_t i = 0; i < adresaci.size(); i++)
 	{
-		if (adresaci[i].getID() == id)
+		if (adresaci[i].pobierzID() == id)
 		{
 			return i;
 		}
@@ -254,7 +258,7 @@ void KsiazkaAdresatow::usunAdresata()
 		Sleep(1500);
 		return;
 	}
-	
+
 	adresaci.erase(adresaci.begin() + pozycja);
 
 	system("cls");
@@ -294,7 +298,7 @@ void KsiazkaAdresatow::wyswietlAdresatowOImieniu()
 
 	for (size_t i = 0; i < adresaci.size(); i++)
 	{
-		if (adresaci[i].getImie() == imie)
+		if (adresaci[i].pobierzImie() == imie)
 		{
 			adresaci[i].wyswietlAdresata();
 			czySaKontakty = true;
@@ -323,7 +327,7 @@ void KsiazkaAdresatow::wyswietlAdresatowONazwisku()
 
 	for (size_t i = 0; i < adresaci.size(); i++)
 	{
-		if (adresaci[i].getNazwisko() == nazwisko)
+		if (adresaci[i].pobierzNazwisko() == nazwisko)
 		{
 			adresaci[i].wyswietlAdresata();
 			czySaKontakty = true;

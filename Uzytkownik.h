@@ -8,10 +8,10 @@ class Uzytkownik
 
 public:
 	Uzytkownik(int id, std::string& nazwa, std::string& haslo);
-	int getID();
-	std::string& getHaslo();
-	std::string& getNazwa();
-	void setHaslo(std::string& hasloPodane);
+	int pobierzID();
+	std::string& pobierzHaslo();
+	std::string& pobierzNazwa();
+	void ustawHaslo(std::string& hasloPodane);
 
 
 };

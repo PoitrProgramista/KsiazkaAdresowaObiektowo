@@ -11,16 +11,16 @@ public:
 	Adresat(int id, std::string& imie, std::string& nazwisko, std::string& telefon,
 			std::string& email, std::string& adres);
 	void wyswietlAdresata();
-	void setImie(std::string& imie);
-	void setNazwisko(std::string& nazwisko);
-	void setTelefon(std::string& telefon);
-	void setEmail(std::string& email);
-	void setAdres(std::string& adres);
-	int getID();
-	std::string getImie();
-	std::string getNazwisko();
-	std::string getTelefon();
-	std::string getEmail();
-	std::string getAdres();
+	void ustawImie(std::string& imie);
+	void ustawNazwisko(std::string& nazwisko);
+	void ustawTelefon(std::string& telefon);
+	void ustawEmail(std::string& email);
+	void ustawAdres(std::string& adres);
+	int pobierzID();
+	std::string pobierzImie();
+	std::string pobierzNazwisko();
+	std::string pobierzTelefon();
+	std::string pobierzEmail();
+	std::string pobierzAdres();
 
 };

@@ -12,57 +12,57 @@ void Adresat::wyswietlAdresata()
 	std::cout << id << std::endl << imie << " " << nazwisko << std::endl << telefon << std::endl << email << std::endl << adres << std::endl << std::endl;;
 }
 
-int Adresat::getID()
+int Adresat::pobierzID()
 {
 	return id;
 }
 
-void Adresat::setImie(std::string& imie)
+void Adresat::ustawImie(std::string& imie)
 {
 	this->imie = imie;
 }
 
-std::string Adresat::getImie()
+std::string Adresat::pobierzImie()
 {
 	return imie;
 }
 
-void Adresat::setNazwisko(std::string& nazwisko)
+void Adresat::ustawNazwisko(std::string& nazwisko)
 {
 	this->nazwisko = nazwisko;
 }
 
-std::string Adresat::getNazwisko()
+std::string Adresat::pobierzNazwisko()
 {
 	return nazwisko;
 }
 
-void Adresat::setTelefon(std::string& telefon)
+void Adresat::ustawTelefon(std::string& telefon)
 {
 	this->telefon = telefon;
 }
 
-std::string Adresat::getTelefon()
+std::string Adresat::pobierzTelefon()
 {
 	return telefon;
 }
 
-void Adresat::setEmail(std::string& email)
+void Adresat::ustawEmail(std::string& email)
 {
 	this->email = email;
 }
 
-std::string Adresat::getEmail()
+std::string Adresat::pobierzEmail()
 {
 	return email;
 }
 
-void Adresat::setAdres(std::string& adres)
+void Adresat::ustawAdres(std::string& adres)
 {
 	this->adres = adres;
 }
 
-std::string Adresat::getAdres()
+std::string Adresat::pobierzAdres()
 {
 	return adres;
 }

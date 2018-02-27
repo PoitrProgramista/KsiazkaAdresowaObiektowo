@@ -17,11 +17,11 @@ class KsiazkaAdresowa
 	void wyloguj();
 	void zarejestruj();
 	void zmienHaslo();
-	void wyjscie();
+	void wyjdz();
 
 public:
 	KsiazkaAdresowa();
-	int getIDZalogowanegoUzytkownika();
+	int pobierzIDZalogowanegoUzytkownika();
 	void wyswietlMenuGlowne();
 	void wyswietlMenuUzytkownika();
 };

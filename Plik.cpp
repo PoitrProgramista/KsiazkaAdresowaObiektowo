@@ -40,7 +40,7 @@ void Plik::zamknijPlik()
 	dostepDoPliku.close();
 }
 
-int Plik::getDlugoscPliku()
+int Plik::pobierzDlugoscPliku()
 {
 	dostepDoPliku.seekg(0, std::ios::end);
 	int length = dostepDoPliku.tellg();
@@ -65,7 +65,7 @@ bool Plik::czyNiePusty()
 void Plik::dostosujFormatowanie()
 {
 
-	int length = getDlugoscPliku();
+	int length = pobierzDlugoscPliku();
 
 	if (length != 0)
 		dostepDoPliku << std::endl;

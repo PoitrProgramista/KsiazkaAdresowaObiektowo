@@ -21,7 +21,7 @@ void KsiazkaUzytkownikow::zapiszDoPliku(Plik& plik)
 
 std::string KsiazkaUzytkownikow::serializacjaUzytkownika(int pozycja)
 {
-	std::string linijkauzytkownika = std::to_string(uzytkownicy[pozycja].getID()) + "|" + uzytkownicy[pozycja].getNazwa() + "|" + uzytkownicy[pozycja].getHaslo();
+	std::string linijkauzytkownika = std::to_string(uzytkownicy[pozycja].pobierzID()) + "|" + uzytkownicy[pozycja].pobierzNazwa() + "|" + uzytkownicy[pozycja].pobierzHaslo();
 
 	return linijkauzytkownika;
 }
@@ -82,7 +82,7 @@ std::vector<Uzytkownik>& KsiazkaUzytkownikow::getUzytkownicy()
 	return uzytkownicy;
 }
 
-void KsiazkaUzytkownikow::setUzytkownicy(int id, std::string& nazwa, std::string& haslo)
+void KsiazkaUzytkownikow::ustawUzytkownicy(int id, std::string& nazwa, std::string& haslo)
 {
 	uzytkownicy.emplace_back(id, nazwa, haslo);
 }

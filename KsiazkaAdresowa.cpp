@@ -20,7 +20,7 @@ void KsiazkaAdresowa::zaloguj()
 
 	for (int i = 0; i < uzytkownicy.size(); i++)
 	{
-		if (uzytkownicy[i].getNazwa() == nazwaPodana)
+		if (uzytkownicy[i].pobierzNazwa() == nazwaPodana)
 		{
 			std::cout << "Podaj haslo uzytkownika: ";
 			std::cin >> hasloPodane;
@@ -28,7 +28,7 @@ void KsiazkaAdresowa::zaloguj()
 			system("cls");
 			std::cin.sync();
 
-			if (uzytkownicy[i].getHaslo() == hasloPodane)
+			if (uzytkownicy[i].pobierzHaslo() == hasloPodane)
 			{
 				idZalogowanegoUzytkownika = ++i;
 				ksiazkaAdresatowZalogowanegoUzytkownika.wczytajZPliku(plik, idZalogowanegoUzytkownika);
@@ -61,7 +61,7 @@ void KsiazkaAdresowa::zarejestruj()
 	if (uzytkownicy.size() == 0)
 		idUzytkownika = 1;
 	else
-		idUzytkownika = uzytkownicy.back().getID() + 1;
+		idUzytkownika = uzytkownicy.back().pobierzID() + 1;
 
 	system("cls");
 	std::cin.sync();
@@ -71,7 +71,7 @@ void KsiazkaAdresowa::zarejestruj()
 	std::cout << "Podaj haslo uzytkownika: ";
 	std::cin >> hasloPodane;
 
-	ksiazkaUzytkownikow.setUzytkownicy(idUzytkownika, nazwaPodana, hasloPodane);
+	ksiazkaUzytkownikow.ustawUzytkownicy(idUzytkownika, nazwaPodana, hasloPodane);
 
 	system("cls");
 	std::cout << "Zarejestrowano" << std::endl;
@@ -93,12 +93,12 @@ void KsiazkaAdresowa::zmienHaslo()
 
 	for (int i = 0; i < uzytkownicy.size(); i++)
 	{
-		if (uzytkownicy[i].getID() == idZalogowanegoUzytkownika)
+		if (uzytkownicy[i].pobierzID() == idZalogowanegoUzytkownika)
 		{
 			system("cls");
 			std::cin.sync();
 
-			uzytkownicy[i].setHaslo(noweHaslo);
+			uzytkownicy[i].ustawHaslo(noweHaslo);
 
 			std::cout << "Haslo zmienione" << std::endl;
 			Sleep(1500);
@@ -107,13 +107,13 @@ void KsiazkaAdresowa::zmienHaslo()
 	}
 }
 
-void KsiazkaAdresowa::wyjscie()
+void KsiazkaAdresowa::wyjdz()
 {
 	ksiazkaUzytkownikow.zapiszDoPliku(plik);
 	exit(0);
 }
 
-int KsiazkaAdresowa::getIDZalogowanegoUzytkownika()
+int KsiazkaAdresowa::pobierzIDZalogowanegoUzytkownika()
 {
 	return idZalogowanegoUzytkownika;
 }
@@ -136,7 +136,7 @@ void KsiazkaAdresowa::wyswietlMenuGlowne()
 			zarejestruj();
 			break;
 		case '3':
-			wyjscie();
+			wyjdz();
 		default:
 			system("cls");
 			std::cout << "Prosze podac poprawny numer" << std::endl;

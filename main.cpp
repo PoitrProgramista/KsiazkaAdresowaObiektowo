@@ -11,7 +11,7 @@ int main()
 		system("cls");
 		std::cin.sync();
 
-		if (ksiazkaAdresowa.getIDZalogowanegoUzytkownika() == 0)
+		if (ksiazkaAdresowa.pobierzIDZalogowanegoUzytkownika() == 0)
 			ksiazkaAdresowa.wyswietlMenuGlowne();
 		else
 			ksiazkaAdresowa.wyswietlMenuUzytkownika();

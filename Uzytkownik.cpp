@@ -6,22 +6,22 @@ Uzytkownik::Uzytkownik(int idPodane, std::string& nazwaPodana, std::string& hasl
 {
 }
 
-int Uzytkownik::getID()
+int Uzytkownik::pobierzID()
 {
 	return id;
 }
 
-void Uzytkownik::setHaslo(std::string& hasloPodane)
+void Uzytkownik::ustawHaslo(std::string& hasloPodane)
 {
 	haslo = hasloPodane;
 }
 
-std::string& Uzytkownik::getHaslo()
+std::string& Uzytkownik::pobierzHaslo()
 {
 	return haslo;
 }
 
-std::string& Uzytkownik::getNazwa()
+std::string& Uzytkownik::pobierzNazwa()
 {
 	return nazwa;
 }

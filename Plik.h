@@ -11,7 +11,7 @@ class Plik
 	bool czyPoprawny();
 	bool czyNiePusty();
 	void dostosujFormatowanie();
-	int getDlugoscPliku();
+	int pobierzDlugoscPliku();
 
 public:
 	bool czyKoniecPliku();
