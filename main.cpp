@@ -1,19 +1,19 @@
 #include <iostream>
-#include "KsiazkaAdresowa.h"
+#include "ContactBook.h"
 
 
 int main()
 {
-	KsiazkaAdresowa ksiazkaAdresowa;
+	ContactBook contactBook;
 
 	while (true)
 	{
 		system("cls");
 		std::cin.sync();
 
-		if (ksiazkaAdresowa.pobierzIDZalogowanegoUzytkownika() == 0)
-			ksiazkaAdresowa.wyswietlMenuGlowne();
+		if (contactBook.getCurrentUserID() == 0)
+			contactBook.displayMainMenu();
 		else
-			ksiazkaAdresowa.wyswietlMenuUzytkownika();
+			contactBook.displayUserMenu();
 	}
 }
